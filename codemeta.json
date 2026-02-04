@@ -83,7 +83,7 @@
   "softwareRequirements": {
     "SystemRequirements": null
   },
-  "fileSize": "187.237KB",
+  "fileSize": "187.82KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -99,5 +99,6 @@
       "description": "R package version 0.0.0.9000"
     }
   ],
-  "readme": "https://github.com/FRBCesab/ncdeckr/blob/main/README.md"
+  "readme": "https://github.com/FRBCesab/ncdeckr/blob/main/README.md",
+  "contIntegration": ["https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml", "https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml"]
 }
