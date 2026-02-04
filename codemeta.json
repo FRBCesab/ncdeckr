@@ -56,6 +56,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "fs",
+      "name": "fs",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=fs"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
       "provider": {
@@ -90,12 +102,36 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vcr",
+      "name": "vcr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "withr",
+      "name": "withr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=withr"
     }
   ],
   "softwareRequirements": {
     "SystemRequirements": null
   },
-  "fileSize": "383.638KB",
+  "fileSize": "386.288KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -111,5 +147,6 @@
       "description": "R package version 0.0.0.9000"
     }
   ],
-  "readme": "https://github.com/FRBCesab/ncdeckr/blob/main/README.md"
+  "readme": "https://github.com/FRBCesab/ncdeckr/blob/main/README.md",
+  "contIntegration": ["https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml", "https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml"]
 }
