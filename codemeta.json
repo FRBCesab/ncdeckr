@@ -2,8 +2,8 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "ncdeckr",
-  "description": "A paragraph providing a full description of the project (on several lines...)",
-  "name": "ncdeckr: The Title of the Project",
+  "description": "Manages (lists, creates, deletes, and updates) boards, stacks, cards and labels of a Nextcloud Deck instance.",
+  "name": "ncdeckr: An R Client to the Nextcloud Deck API",
   "codeRepository": "https://github.com/frbcesab/ncdeckr",
   "issueTracker": "https://github.com/frbcesab/ncdeckr/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
@@ -42,6 +42,18 @@
     }
   ],
   "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
@@ -83,7 +95,7 @@
   "softwareRequirements": {
     "SystemRequirements": null
   },
-  "fileSize": "187.82KB",
+  "fileSize": "383.638KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -94,11 +106,10 @@
           "name": "Casajus Nicolas"
         }
       ],
-      "name": "ncdeckr: {An} {R} package to ...",
+      "name": "ncdeckr: {An} {R} {C}lient to the {N}extcloud {D}eck {API}",
       "url": "https://github.com/frbcesab/ncdeckr",
       "description": "R package version 0.0.0.9000"
     }
   ],
-  "readme": "https://github.com/FRBCesab/ncdeckr/blob/main/README.md",
-  "contIntegration": ["https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml", "https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml"]
+  "readme": "https://github.com/FRBCesab/ncdeckr/blob/main/README.md"
 }

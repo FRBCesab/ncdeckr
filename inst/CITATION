@@ -2,7 +2,7 @@ citHeader("To cite ncdeckr in publications use:")
 
 bibentry(
   bibtype = "Manual",
-  title   = "ncdeckr: {An} {R} package to ...",
+  title   = "ncdeckr: {An} {R} {C}lient to the {N}extcloud {D}eck {API}",
   author  = c(person("Casajus Nicolas")),
   year    = "2026",
   note    = "R package version 0.0.0.9000",

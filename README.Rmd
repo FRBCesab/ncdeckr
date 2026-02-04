@@ -67,7 +67,7 @@ ncdeckr <img src="man/figures/package-sticker.png" align="right" style="float:ri
 
 [Nextcloud Deck](https://apps.nextcloud.com/apps/deck) is a kanban style organization tool aimed at personal planning and project organization for teams integrated with Nextcloud.
 
-![Nextcloud Deck (screenshot from official website)](man/figures/README-image.png)
+![](man/figures/README-image.png)
 
 The R package `ncdeckr` is a client to the 
 [Nextcloud Deck API](https://deck.readthedocs.io/en/latest/API/).
@@ -106,7 +106,7 @@ Save this file and restart R.
 
 ## Features
 
-The main purpose of `ncdeckr` is to... **{{ DESCRIBE THE MAIN FEATURES }}**
+Coming soon...
 
 
 
@@ -155,8 +155,7 @@ vignette describes the core features of the package
 
 Please cite `ncdeckr` as: 
 
-> Casajus Nicolas (`r format(Sys.Date(), "%Y")`) ncdeckr: An R 
-package to **{{ TITLE }}**. R package version 0.0.0.9000. 
+> Casajus Nicolas (`r format(Sys.Date(), "%Y")`) ncdeckr: An R Client to the Nextcloud Deck API. R package version 0.0.0.9000. 
 <https://github.com/frbcesab/ncdeckr/>
 
 
@@ -169,15 +168,3 @@ check out our [Contributor Guidelines](https://github.com/frbcesab/ncdeckr/blob/
 Please note that the `ncdeckr` project is released with a 
 [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). 
 By contributing to this project, you agree to abide by its terms.
-
-
-
-## Acknowledgments
-
-**{{ OPTIONAL SECTION }}**
-
-
-
-## References
-
-**{{ OPTIONAL SECTION }}**

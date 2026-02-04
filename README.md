@@ -35,12 +35,7 @@ Check](https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml/ba
 organization tool aimed at personal planning and project organization
 for teams integrated with Nextcloud.
 
-<figure>
-<img src="man/figures/README-image.png"
-alt="Nextcloud Deck (screenshot from official website)" />
-<figcaption aria-hidden="true">Nextcloud Deck (screenshot from official
-website)</figcaption>
-</figure>
+![](man/figures/README-image.png)
 
 The R package `ncdeckr` is a client to the [Nextcloud Deck
 API](https://deck.readthedocs.io/en/latest/API/). It is dedicated to
@@ -77,8 +72,7 @@ Save this file and restart R.
 
 ## Features
 
-The main purpose of `ncdeckr` is to… **{{ DESCRIBE THE MAIN FEATURES
-}}**
+Coming soon…
 
 ## Installation
 
@@ -119,8 +113,8 @@ vignette describes the core features of the package
 
 Please cite `ncdeckr` as:
 
-> Casajus Nicolas (2026) ncdeckr: An R package to **{{ TITLE }}**. R
-> package version 0.0.0.9000. <https://github.com/frbcesab/ncdeckr/>
+> Casajus Nicolas (2026) ncdeckr: An R Client to the Nextcloud Deck API.
+> R package version 0.0.0.9000. <https://github.com/frbcesab/ncdeckr/>
 
 ## Contributing
 
@@ -132,11 +126,3 @@ Please note that the `ncdeckr` project is released with a [Contributor
 Code of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
-
-## Acknowledgments
-
-**{{ OPTIONAL SECTION }}**
-
-## References
-
-**{{ OPTIONAL SECTION }}**
