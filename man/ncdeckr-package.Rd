@@ -4,9 +4,9 @@
 \name{ncdeckr-package}
 \alias{ncdeckr}
 \alias{ncdeckr-package}
-\title{ncdeckr: The Title of the Project}
+\title{ncdeckr: An R Client to the Nextcloud Deck API}
 \description{
-A paragraph providing a full description of the project (on several lines...)
+Manages (lists, creates, deletes, and updates) boards, stacks, cards and labels of a Nextcloud Deck instance.
 }
 \seealso{
 Useful links:
