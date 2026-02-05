@@ -36,5 +36,5 @@ if (Sys.getenv("NEXTCLOUD_PASSWORD") == "") {
 }
 
 if (Sys.getenv("NEXTCLOUD_SERVER") == "") {
-  Sys.setenv(NEXTCLOUD_SERVER = "https://fakesite.com")
+  Sys.setenv(NEXTCLOUD_SERVER = "http://127.0.0.1")
 }
