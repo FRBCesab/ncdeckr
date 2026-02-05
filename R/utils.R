@@ -66,3 +66,26 @@
     sep = "/"
   )
 }
+
+
+#' Append request headers
+#'
+#' @noRd
+
+.append_headers <- function(.req) {
+  if (missing(.req)) {
+    stop("Argument '.req' is required", call. = FALSE)
+  }
+
+  if (!inherits(.req, "httr2_request")) {
+    stop(
+      "Argument '.req' must be a 'httr2_request' object created with ",
+      "'httr2::request()'",
+      call. = FALSE
+    )
+  }
+
+  .req |>
+    httr2::req_headers(`OCS-APIRequest` = "true") |>
+    httr2::req_headers(`Content-Type` = "application/json")
+}

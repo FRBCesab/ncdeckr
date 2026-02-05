@@ -133,3 +133,49 @@ test_that("Test .append_endpoint() for success", {
 
   expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/boards/1")
 })
+
+
+## Test .append_headers() ----
+
+test_that("Test .append_headers() for error", {
+  create_tempdir()
+
+  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
+
+  expect_error(
+    .append_headers(),
+    "Argument '.req' is required",
+    fixed = TRUE
+  )
+
+  expect_error(
+    .append_headers(.append_endpoint()),
+    paste0(
+      "Argument '.req' must be a 'httr2_request' object created with ",
+      "'httr2::request()'"
+    ),
+    fixed = TRUE
+  )
+})
+
+test_that("Test .append_headers() for success", {
+  create_tempdir()
+
+  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
+
+  http_request <- .append_endpoint() |>
+    httr2::request()
+
+  expect_equal(length(http_request$"headers"), 0L)
+
+  expect_silent(x <- .append_headers(http_request))
+
+  expect_true(inherits(x, "httr2_request"))
+  expect_equal(length(x$"headers"), 2L)
+
+  expect_equal(names(x$headers)[1], "OCS-APIRequest")
+  expect_equal(names(x$headers)[2], "Content-Type")
+
+  expect_equal(x$headers[[1]], "true")
+  expect_equal(x$headers[[2]], "application/json")
+})
