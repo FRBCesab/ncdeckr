@@ -92,7 +92,7 @@
 </ul>
 <p>To generate a Nextcloud application password, go to the Settings and open the Security menu. At the bottom, generate a new app password (use <code>ncdeckr</code> as the app name).</p>
 <p>Once your password is created, store your Nextcloud credentials on your computer. A good practice in <a href="https://cran.r-project.org/web/packages/httr/vignettes/secrets.html" class="external-link">managing secrets</a> is to store this information as R Environment variables.</p>
-<p>Use the function <code>usethis::edit_r_environ()</code> to open the <code>~/.Renviron</code> file and add these three lines:</p>
+<p>Use the function <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code> to open the <code>~/.Renviron</code> file and add these three lines:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>NEXTCLOUD_USERNAME<span class="ot">=</span><span class="st">'your-username'</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>NEXTCLOUD_PASSWORD<span class="ot">=</span><span class="st">'your-password'</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>NEXTCLOUD_SERVER<span class="ot">=</span><span class="st">'https://...'</span></span></code></pre></div>
@@ -114,7 +114,7 @@
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="co">## Install &lt; ncdeckr &gt; from GitHub ----</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"frbcesab/ncdeckr"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"frbcesab/ncdeckr"</span><span class="op">)</span></span></code></pre></div>
 <p>Then you can attach the package <code>ncdeckr</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/frbcesab/ncdeckr" class="external-link">"ncdeckr"</a></span><span class="op">)</span></span></code></pre></div>
