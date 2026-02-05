@@ -103,3 +103,33 @@ test_that("Test nc_get_credentials() for success", {
   expect_true(inherits(x[[2]], "character"))
   expect_true(inherits(x[[3]], "character"))
 })
+
+
+## Test .append_endpoint() ----
+
+test_that("Test .append_endpoint() for success", {
+  create_tempdir()
+
+  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
+
+  expect_silent(x <- .append_endpoint())
+
+  expect_true(inherits(x, "character"))
+  expect_equal(length(x), 1L)
+
+  expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/")
+
+  expect_silent(x <- .append_endpoint("boards"))
+
+  expect_true(inherits(x, "character"))
+  expect_equal(length(x), 1L)
+
+  expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/boards")
+
+  expect_silent(x <- .append_endpoint("boards", 1))
+
+  expect_true(inherits(x, "character"))
+  expect_equal(length(x), 1L)
+
+  expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/boards/1")
+})

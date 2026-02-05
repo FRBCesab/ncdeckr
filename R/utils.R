@@ -42,3 +42,27 @@ nc_get_credentials <- function() {
     "nc_server" = nc_server
   )
 }
+
+
+#' Generate API endpoint
+#'
+#' @noRd
+
+.append_endpoint <- function(...) {
+  base_url <- nc_get_credentials()$"nc_seqrver"
+  base_url <- gsub("/$", "", base_url)
+
+  url_paths <- list(...) |>
+    unlist()
+
+  paste(
+    base_url,
+    "index.php",
+    "apps",
+    "deck",
+    "api",
+    "v1.0",
+    paste0(url_paths, collapse = "/"),
+    sep = "/"
+  )
+}
