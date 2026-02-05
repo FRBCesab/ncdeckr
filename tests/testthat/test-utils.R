@@ -1,6 +1,6 @@
-## Test nc_get_credentials() ----
+## Test .get_credentials() ----
 
-test_that("Test nc_get_credentials() for error", {
+test_that("Test .get_credentials() for error", {
   create_tempdir()
 
   Sys.setenv("NEXTCLOUD_USERNAME" = "username")
@@ -11,7 +11,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_USERNAME" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_USERNAME" = nextcloud_username)
@@ -20,7 +20,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_PASSWORD" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_PASSWORD" = nextcloud_password)
@@ -29,7 +29,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_SERVER" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_SERVER" = nextcloud_server)
@@ -40,7 +40,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_PASSWORD" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_USERNAME" = nextcloud_username)
@@ -52,7 +52,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_SERVER" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_USERNAME" = nextcloud_username)
@@ -64,7 +64,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_SERVER" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_PASSWORD" = nextcloud_password)
@@ -78,7 +78,7 @@ test_that("Test nc_get_credentials() for error", {
   Sys.setenv("NEXTCLOUD_SERVER" = "")
 
   expect_error(
-    nc_get_credentials()
+    .get_credentials()
   )
 
   Sys.setenv("NEXTCLOUD_USERNAME" = nextcloud_username)
@@ -87,10 +87,10 @@ test_that("Test nc_get_credentials() for error", {
 })
 
 
-test_that("Test nc_get_credentials() for success", {
+test_that("Test .get_credentials() for success", {
   create_tempdir()
 
-  expect_silent(x <- nc_get_credentials())
+  expect_silent(x <- .get_credentials())
 
   expect_true(inherits(x, "list"))
   expect_equal(length(x), 3L)

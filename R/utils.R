@@ -2,7 +2,7 @@
 #'
 #' @noRd
 
-nc_get_credentials <- function() {
+.get_credentials <- function() {
   nc_user <- Sys.getenv("NEXTCLOUD_USERNAME")
 
   if (identical(nc_user, "")) {
@@ -49,7 +49,7 @@ nc_get_credentials <- function() {
 #' @noRd
 
 .append_endpoint <- function(...) {
-  base_url <- nc_get_credentials()$"nc_seqrver"
+  base_url <- .get_credentials()$"nc_server"
   base_url <- gsub("/$", "", base_url)
 
   url_paths <- list(...) |>
