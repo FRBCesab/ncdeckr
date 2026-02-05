@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
-codecov <- devtools::test_coverage() |>
+codecov <- devtools::test_coverage(show_report = FALSE) |>
   covr::percent_coverage() |>
   round(0)
 
