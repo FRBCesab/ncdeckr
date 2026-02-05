@@ -221,3 +221,240 @@ test_that("Test .append_authentication() for success", {
 
   expect_equal(names(x$headers)[1], "Authorization")
 })
+
+
+## Test .extract_item() ----
+
+test_that("Test .extract_item() for success", {
+  fake_data <- list(a = 1, b = 2, c = list(d = 3, e = 4:6))
+
+  expect_silent(x <- .extract_item(data = fake_data, name = "a"))
+  expect_true(inherits(x, "numeric"))
+  expect_equal(length(x), 1L)
+  expect_equal(x, 1L)
+
+  expect_silent(x <- .extract_item(data = fake_data$"c", name = "d"))
+  expect_true(inherits(x, "numeric"))
+  expect_equal(length(x), 1L)
+  expect_equal(x, 3L)
+
+  expect_silent(x <- .extract_item(data = fake_data, name = "f"))
+  expect_true(inherits(x, "logical"))
+  expect_equal(length(x), 1L)
+  expect_equal(x, NA)
+})
+
+
+## Test .extract_boards_details() ----
+
+test_that("Test .extract_boards_details() for error", {
+  expect_error(
+    .extract_boards_details(),
+    "Argument '.resp' is required",
+    fixed = TRUE
+  )
+
+  expect_error(
+    .extract_boards_details(matrix()),
+    "Argument '.resp' must be a list",
+    fixed = TRUE
+  )
+
+  expect_error(
+    .extract_boards_details(1L),
+    "Argument '.resp' must be a list",
+    fixed = TRUE
+  )
+
+  expect_error(
+    .extract_boards_details(letters),
+    "Argument '.resp' must be a list",
+    fixed = TRUE
+  )
+})
+
+test_that("Test .extract_boards_details() for success", {
+  ### No board returned
+  expect_silent(x <- .extract_boards_details(list()))
+
+  expect_true(inherits(x, "data.frame"))
+  expect_equal(ncol(x), 0L)
+  expect_equal(nrow(x), 0L)
+
+  ### One board returned w/ full information
+
+  fake_board <- list(
+    list(
+      id = 1,
+      title = "Fake board",
+      owner = list(uid = "jdoe", name = "Jane Doe"),
+      color = "000000",
+      archived = TRUE,
+      deletedAt = 0,
+      stacks = list(list(name = "Stack 1"), list(name = "Stack 2")),
+      labels = list(
+        list(name = "Label 1"),
+        list(name = "Label 2"),
+        list(name = "Label 3")
+      )
+    )
+  )
+
+  expect_silent(x <- .extract_boards_details(fake_board))
+
+  expect_true(inherits(x, "data.frame"))
+  expect_equal(ncol(x), 8L)
+  expect_equal(nrow(x), 1L)
+
+  expect_equal(x[1, "id"], 1L)
+  expect_equal(x[1, "title"], "Fake board")
+  expect_equal(x[1, "owner"], "jdoe")
+  expect_equal(x[1, "color"], "000000")
+  expect_equal(x[1, "archived"], TRUE)
+  expect_equal(x[1, "deleted"], FALSE)
+  expect_equal(x[1, "n_stacks"], 2L)
+  expect_equal(x[1, "n_labels"], 3L)
+
+  ### Two boards returned w/ full information
+
+  fake_board <- list(
+    list(
+      id = 1,
+      title = "Fake board",
+      owner = list(uid = "jdoe", name = "Jane Doe"),
+      color = "000000",
+      archived = TRUE,
+      deletedAt = 0,
+      stacks = list(list(name = "Stack 1"), list(name = "Stack 2")),
+      labels = list(
+        list(name = "Label 1"),
+        list(name = "Label 2"),
+        list(name = "Label 3")
+      )
+    ),
+    list(
+      id = 1,
+      title = "Fake board",
+      owner = list(uid = "jdoe", name = "Jane Doe"),
+      color = "000000",
+      archived = TRUE,
+      deletedAt = 0,
+      stacks = list(list(name = "Stack 1"), list(name = "Stack 2")),
+      labels = list(
+        list(name = "Label 1"),
+        list(name = "Label 2"),
+        list(name = "Label 3")
+      )
+    )
+  )
+
+  expect_silent(x <- .extract_boards_details(fake_board))
+
+  expect_true(inherits(x, "data.frame"))
+  expect_equal(ncol(x), 8L)
+  expect_equal(nrow(x), 2L)
+
+  expect_equal(x[1, "id"], 1L)
+  expect_equal(x[1, "title"], "Fake board")
+  expect_equal(x[1, "owner"], "jdoe")
+  expect_equal(x[1, "color"], "000000")
+  expect_equal(x[1, "archived"], TRUE)
+  expect_equal(x[1, "deleted"], FALSE)
+  expect_equal(x[1, "n_stacks"], 2L)
+  expect_equal(x[1, "n_labels"], 3L)
+
+  expect_equal(x[2, "id"], 1L)
+  expect_equal(x[2, "title"], "Fake board")
+  expect_equal(x[2, "owner"], "jdoe")
+  expect_equal(x[2, "color"], "000000")
+  expect_equal(x[2, "archived"], TRUE)
+  expect_equal(x[2, "deleted"], FALSE)
+  expect_equal(x[2, "n_stacks"], 2L)
+  expect_equal(x[2, "n_labels"], 3L)
+
+  ### One board returned w/ missing information
+
+  fake_board <- list(
+    list(
+      id = 1,
+      title = "Fake board",
+      # owner = list(uid = "jdoe", name = "Jane Doe"),
+      # color = "000000",
+      archived = TRUE,
+      deletedAt = 0,
+      # stacks = list(list(name = "Stack 1"), list(name = "Stack 2")),
+      labels = list(
+        list(name = "Label 1"),
+        list(name = "Label 2"),
+        list(name = "Label 3")
+      )
+    )
+  )
+
+  expect_silent(x <- .extract_boards_details(fake_board))
+
+  expect_true(inherits(x, "data.frame"))
+  expect_equal(ncol(x), 8L)
+  expect_equal(nrow(x), 1L)
+
+  expect_equal(x[1, "id"], 1L)
+  expect_equal(x[1, "title"], "Fake board")
+  expect_equal(x[1, "owner"], NA)
+  expect_equal(x[1, "color"], NA)
+  expect_equal(x[1, "archived"], TRUE)
+  expect_equal(x[1, "deleted"], FALSE)
+  expect_equal(x[1, "n_stacks"], 0L)
+  expect_equal(x[1, "n_labels"], 3L)
+
+  ### Two boards returned w/ missing information
+
+  fake_board <- list(
+    list(
+      id = 1,
+      title = "Fake board",
+      # owner = list(uid = "jdoe", name = "Jane Doe"),
+      # color = "000000",
+      archived = TRUE,
+      deletedAt = 0,
+      # stacks = list(list(name = "Stack 1"), list(name = "Stack 2")),
+      labels = list(
+        list(name = "Label 1"),
+        list(name = "Label 2"),
+        list(name = "Label 3")
+      )
+    ),
+    list(
+      id = 1,
+      # title = "Fake board",
+      owner = list(uid = "jdoe", name = "Jane Doe"),
+      color = "000000",
+      # archived = TRUE,
+      deletedAt = 0,
+      stacks = list(list(name = "Stack 1"), list(name = "Stack 2"))
+    )
+  )
+
+  expect_silent(x <- .extract_boards_details(fake_board))
+
+  expect_true(inherits(x, "data.frame"))
+  expect_equal(ncol(x), 8L)
+  expect_equal(nrow(x), 2L)
+
+  expect_equal(x[1, "id"], 1L)
+  expect_equal(x[1, "title"], "Fake board")
+  expect_equal(x[1, "owner"], NA_character_)
+  expect_equal(x[1, "color"], NA_character_)
+  expect_equal(x[1, "archived"], TRUE)
+  expect_equal(x[1, "deleted"], FALSE)
+  expect_equal(x[1, "n_stacks"], 0L)
+  expect_equal(x[1, "n_labels"], 3L)
+
+  expect_equal(x[2, "id"], 1L)
+  expect_equal(x[2, "title"], NA_character_)
+  expect_equal(x[2, "owner"], "jdoe")
+  expect_equal(x[2, "color"], "000000")
+  expect_equal(x[2, "archived"], NA)
+  expect_equal(x[2, "deleted"], FALSE)
+  expect_equal(x[2, "n_stacks"], 2L)
+  expect_equal(x[2, "n_labels"], 0L)
+})

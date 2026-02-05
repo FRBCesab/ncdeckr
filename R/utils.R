@@ -1,4 +1,4 @@
-#' Check and retrieve Nextcloud credentials stored locally
+#' Checks and retrieves Nextcloud credentials stored locally
 #'
 #' @noRd
 
@@ -44,7 +44,7 @@
 }
 
 
-#' Generate API endpoint
+#' Generates API endpoint
 #'
 #' @noRd
 
@@ -68,7 +68,7 @@
 }
 
 
-#' Append request headers
+#' Appends request headers
 #'
 #' @noRd
 
@@ -91,7 +91,7 @@
 }
 
 
-#' Append request authentication
+#' Appends request authentication
 #'
 #' @noRd
 
@@ -113,4 +113,58 @@
       username = .get_credentials()$"nc_username",
       password = .get_credentials()$"nc_password"
     )
+}
+
+
+#' Creates output (data.frame) for nc_list_boards()
+#'
+#' @noRd
+
+.extract_boards_details <- function(.resp) {
+  if (missing(.resp)) {
+    stop("Argument '.resp' is required", call. = FALSE)
+  }
+
+  if (!is.list(.resp)) {
+    stop("Argument '.resp' must be a list", call. = FALSE)
+  }
+
+  if (length(.resp) == 0) {
+    return(data.frame())
+  }
+
+  output <- lapply(.resp, function(board) {
+    data.frame(
+      id = .extract_item(board, "id"),
+      title = .extract_item(board, "title"),
+      owner = .extract_item(board$"owner", "uid"),
+      color = .extract_item(board, "color"),
+      archived = .extract_item(board, "archived"),
+      deleted = ifelse(board$"deletedAt" == 0, FALSE, TRUE),
+      n_stacks = length(board$"stacks"),
+      n_labels = length(board$"labels")
+    )
+  })
+
+  output <- do.call(rbind.data.frame, output)
+  output <- output[order(output$"title", decreasing = FALSE), ]
+  rownames(output) <- NULL
+
+  output
+}
+
+
+#' Extracts element from list (json) but check if exists before
+#'
+#' @noRd
+
+.extract_item <- function(data, name) {
+  if (name %in% names(data)) {
+    data <- data[[name]]
+    names(data) <- NULL
+  } else {
+    data <- NA
+  }
+
+  data
 }
