@@ -1,8 +1,15 @@
 #' List details of all boards
 #'
 #' @description
-#' Performs an HTTP request (GET method) at the endpoint `/boards` of the 
-#' Nextcloud Deck API to retrieve details of all Deck boards.
+#' Performs an HTTP request (GET method) at the endpoint `/boards` of the
+#' Nextcloud Deck API to retrieve details of all Deck boards (including deleted
+#' and archived boards).
+#'
+#' @param archived a `logical` of length 1. If `TRUE` returns also archived
+#'   boards. Default is `FALSE`.
+#'
+#' @param deleted a `logical` of length 1. If `TRUE` returns also deleted
+#'   boards. Default is `FALSE`.
 #'
 #' @return A `data.frame` with the following columns:
 #'   - `id`: the identifier of the board
@@ -20,9 +27,15 @@
 #' \dontrun{
 #' ## List details of all Nextcloud boards
 #' nc_list_boards()
+#' 
+#' ## List details of all Nextcloud boards (including archived ones)
+#' nc_list_boards(archived = TRUE)
+#' 
+#' ## List details of all Nextcloud boards (including deleted ones)
+#' nc_list_boards(deleted = TRUE)
 #' }
 
-nc_list_boards <- function() {
+nc_list_boards <- function(archived = FALSE, deleted = FALSE) {
   http_request <- .append_endpoint("boards") |>
     httr2::request() |>
     httr2::req_method("GET") |>
@@ -33,7 +46,19 @@ nc_list_boards <- function() {
   http_response <- http_request |>
     httr2::req_perform()
 
-  http_response |>
+  content <- http_response |>
     httr2::resp_body_json() |>
     .extract_boards_details()
+
+  if (!archived) {
+    content <- content[!content$"archived", ]
+  }
+
+  if (!deleted) {
+    content <- content[!content$"deleted", ]
+  }
+
+  rownames(content) <- NULL
+
+  content
 }

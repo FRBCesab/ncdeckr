@@ -4,7 +4,14 @@
 \alias{nc_list_boards}
 \title{List details of all boards}
 \usage{
-nc_list_boards()
+nc_list_boards(archived = FALSE, deleted = FALSE)
+}
+\arguments{
+\item{archived}{a \code{logical} of length 1. If \code{TRUE} returns also archived
+boards. Default is \code{FALSE}.}
+
+\item{deleted}{a \code{logical} of length 1. If \code{TRUE} returns also deleted
+boards. Default is \code{FALSE}.}
 }
 \value{
 A \code{data.frame} with the following columns:
@@ -21,11 +28,18 @@ A \code{data.frame} with the following columns:
 }
 \description{
 Performs an HTTP request (GET method) at the endpoint \verb{/boards} of the
-Nextcloud Deck API to retrieve details of all Deck boards.
+Nextcloud Deck API to retrieve details of all Deck boards (including deleted
+and archived boards).
 }
 \examples{
 \dontrun{
 ## List details of all Nextcloud boards
 nc_list_boards()
+
+## List details of all Nextcloud boards (including archived ones)
+nc_list_boards(archived = TRUE)
+
+## List details of all Nextcloud boards (including deleted ones)
+nc_list_boards(deleted = TRUE)
 }
 }
