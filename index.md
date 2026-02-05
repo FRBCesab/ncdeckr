@@ -1,0 +1,104 @@
+# ncdeckr ![](reference/figures/package-sticker.png)
+
+• [Overview](#overview)  
+• [Features](#features)  
+• [Installation](#installation)  
+• [Get started](#get-started)  
+• [Long-form documentations](#long-form-documentations)  
+• [Citation](#citation)  
+• [Contributing](#contributing)  
+• [Acknowledgments](#acknowledgments)  
+• [References](#references)
+
+## Overview
+
+[Nextcloud Deck](https://apps.nextcloud.com/apps/deck) is a kanban style
+organization tool aimed at personal planning and project organization
+for teams integrated with Nextcloud.
+
+![](reference/figures/README-image.png)
+
+The R package `ncdeckr` is a client to the [Nextcloud Deck
+API](https://deck.readthedocs.io/en/latest/API/). It is dedicated to
+manage (list, create, delete, update) boards, stacks, cards and labels.
+
+`ncdeckr` is freely released by the
+[FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/).
+
+## Requirements
+
+To use `ncdeckr`, you need to locally store your Nextcloud credentials:
+
+- the URL of the Nextcloud server
+- your username on the Nextcloud instance
+- an application password
+
+To generate a Nextcloud application password, go to the Settings and
+open the Security menu. At the bottom, generate a new app password (use
+`ncdeckr` as the app name).
+
+Once your password is created, store your Nextcloud credentials on your
+computer. A good practice in [managing
+secrets](https://cran.r-project.org/web/packages/httr/vignettes/secrets.html)
+is to store this information as R Environment variables.
+
+Use the function
+[`usethis::edit_r_environ()`](https://usethis.r-lib.org/reference/edit.html)
+to open the `~/.Renviron` file and add these three lines:
+
+``` R
+NEXTCLOUD_USERNAME='your-username'
+NEXTCLOUD_PASSWORD='your-password'
+NEXTCLOUD_SERVER='https://...'
+```
+
+Save this file and restart R.
+
+## Features
+
+Coming soon…
+
+## Installation
+
+You can install the development version from
+[GitHub](https://github.com/) with:
+
+``` r
+## Install < remotes > package (if not already installed) ----
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+
+## Install < ncdeckr > from GitHub ----
+remotes::install_github("frbcesab/ncdeckr")
+```
+
+Then you can attach the package `ncdeckr`:
+
+``` r
+library("ncdeckr")
+```
+
+## Get started
+
+For an overview of the main features of `ncdeckr`, please read the [Get
+started](https://frbcesab.github.io/ncdeckr/articles/ncdeckr.html)
+vignette.
+
+## Citation
+
+Please cite `ncdeckr` as:
+
+> Casajus Nicolas (2026) ncdeckr: An R Client to the Nextcloud Deck API.
+> R package version 0.0.0.9000. <https://github.com/frbcesab/ncdeckr/>
+
+## Contributing
+
+All types of contributions are encouraged and valued. For more
+information, check out our [Contributor
+Guidelines](https://github.com/frbcesab/ncdeckr/blob/main/CONTRIBUTING.md).
+
+Please note that the `ncdeckr` project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
