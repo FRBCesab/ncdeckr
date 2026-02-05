@@ -4,14 +4,11 @@
 \alias{nc_list_stacks}
 \title{List details of all stacks for a board}
 \usage{
-nc_list_stacks(board_id, deleted = FALSE)
+nc_list_stacks(board_id)
 }
 \arguments{
 \item{board_id}{a \code{integer} of length 1. The identifier of the board. Use
 \code{nc_list_boards()} to get this value.}
-
-\item{deleted}{a \code{logical} of length 1. If \code{TRUE} returns also deleted
-stacks. Default is \code{FALSE}.}
 }
 \value{
 A \code{data.frame} with the following columns:
@@ -19,7 +16,6 @@ A \code{data.frame} with the following columns:
 \item \code{board_id}: the identifier of the board
 \item \code{id}: the identifier of the stack
 \item \code{title}: the name of the stack
-\item \code{deleted}: is the stack deleted?
 \item \code{n_cards}: the number of cards in the stack
 }
 }
@@ -30,10 +26,7 @@ all stacks of a Deck board (including deleted and archived stacks).
 }
 \examples{
 \dontrun{
-## List details of all Nextcloud boards
+## List details of all Nextcloud stacks of a board
 nc_list_stacks()
-
-## List details of all Nextcloud boards (including deleted ones)
-nc_list_stacks(deleted = TRUE)
 }
 }

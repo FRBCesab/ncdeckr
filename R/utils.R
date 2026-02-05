@@ -192,7 +192,6 @@
       board_id = .extract_item(stack, "boardId"),
       id = .extract_item(stack, "id"),
       title = .extract_item(stack, "title"),
-      deleted = ifelse(stack$"deletedAt" == 0, FALSE, TRUE),
       n_cards = length(stack$"cards")
     )
   })

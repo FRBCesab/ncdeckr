@@ -8,28 +8,21 @@
 #' @param board_id a `integer` of length 1. The identifier of the board. Use
 #'   `nc_list_boards()` to get this value.
 #'
-#' @param deleted a `logical` of length 1. If `TRUE` returns also deleted
-#'   stacks. Default is `FALSE`.
-#'
 #' @return A `data.frame` with the following columns:
 #'   - `board_id`: the identifier of the board
 #'   - `id`: the identifier of the stack
 #'   - `title`: the name of the stack
-#'   - `deleted`: is the stack deleted?
 #'   - `n_cards`: the number of cards in the stack
 #'
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' ## List details of all Nextcloud boards
+#' ## List details of all Nextcloud stacks of a board
 #' nc_list_stacks()
-#'
-#' ## List details of all Nextcloud boards (including deleted ones)
-#' nc_list_stacks(deleted = TRUE)
 #' }
 
-nc_list_stacks <- function(board_id, deleted = FALSE) {
+nc_list_stacks <- function(board_id) {
   if (missing(board_id)) {
     stop("Argument 'board_id' is required", call. = FALSE)
   }
@@ -75,12 +68,6 @@ nc_list_stacks <- function(board_id, deleted = FALSE) {
   content <- http_response |>
     httr2::resp_body_json() |>
     .extract_stacks_details()
-
-  if (!deleted && nrow(content) > 0) {
-    content <- content[!content$"deleted", ]
-  }
-
-  rownames(content) <- NULL
 
   content
 }
