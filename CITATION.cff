@@ -57,6 +57,25 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.covr
 - type: software
+  title: devtools
+  abstract: 'devtools: Tools to Make Developing R Packages Easier'
+  notes: Suggests
+  url: https://devtools.r-lib.org/
+  repository: https://CRAN.R-project.org/package=devtools
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Chang
+    given-names: Winston
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@posit.co
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2026'
+  doi: 10.32614/CRAN.package.devtools
+- type: software
   title: fs
   abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
   notes: Suggests
