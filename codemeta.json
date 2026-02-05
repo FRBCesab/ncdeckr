@@ -56,6 +56,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "devtools",
+      "name": "devtools",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=devtools"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "fs",
       "name": "fs",
       "provider": {
@@ -129,9 +141,21 @@
     }
   ],
   "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "httr2",
+      "name": "httr2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr2"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "386.288KB",
+  "fileSize": "427.977KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
