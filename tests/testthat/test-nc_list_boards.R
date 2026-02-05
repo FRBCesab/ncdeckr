@@ -2,7 +2,7 @@
 
 test_that("Test nc_list_boards() for success", {
   skip_on_cran()
-
+  vcr::local_vcr_configure_log()
   vcr::local_cassette("nc_list_boards")
 
   expect_silent(x <- nc_list_boards())

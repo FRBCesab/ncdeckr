@@ -1,0 +1,53 @@
+http_interactions:
+- request:
+    method: GET
+    uri: http://127.0.0.1/index.php/apps/deck/api/v1.0/boards?details=true
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=2592000
+      cache-control: no-cache, no-store, must-revalidate
+      content-encoding: gzip
+      content-length: '862'
+      content-security-policy: default-src 'none';base-uri 'none';manifest-src 'self';frame-ancestors
+        'none'
+      content-type: application/json; charset=utf-8
+      date: Thu, 05 Feb 2026 15:43:06 GMT
+      etag: '"0d313ab9d0e26233281aaa477ad5f9a7"'
+      feature-policy: autoplay 'none';camera 'none';fullscreen 'none';geolocation
+        'none';microphone 'none';payment 'none'
+      referrer-policy: no-referrer
+      set-cookie:
+      - oc_sessionPassphrase=IBUKiz8TFI59HhjDCtAWNAX8%2FiGrCmjkb3axHYKcJ%2B55h28sCV01PKUAwZSP9IuItGzyCM%2BmwLMn6RKQS4MpSkp7c9gxjOY4L2NCDIY3dJt4ZrgPUmWmNtz6O%2FlJLEZK;
+        path=/; secure; HttpOnly; SameSite=Lax
+      - __Host-nc_sameSiteCookielax=true; path=/; httponly;secure; expires=Fri, 31-Dec-2100
+        23:59:59 GMT; SameSite=lax
+      - __Host-nc_sameSiteCookiestrict=true; path=/; httponly;secure; expires=Fri,
+        31-Dec-2100 23:59:59 GMT; SameSite=strict
+      - ocazjwrmait0=10e5e973f30a74886fa96ebc9fdfd2d9; path=/; secure; HttpOnly; SameSite=Lax
+      strict-transport-security: max-age=31536000;
+      via: 1.1 Caddy
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      x-permitted-cross-domain-policies: none
+      x-request-id: XxKJFXNh5bT1jRKTkvNP
+      x-robots-tag: noindex, nofollow
+      x-user-id: <NEXTCLOUD_USERNAME>
+    body:
+      string: '[{"id":1,"title":"Personal","owner":{"primaryKey":"<NEXTCLOUD_USERNAME>","uid":"<NEXTCLOUD_USERNAME>","displayname":"<NEXTCLOUD_DISPLAYNAME>","type":0},"color":"0A580D","archived":false,"labels":[{"id":1,"title":"Finished","color":"31CC7C","boardId":1,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":2,"title":"To
+        review","color":"317CCC","boardId":1,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":3,"title":"Action
+        needed","color":"FF7A66","boardId":1,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":4,"title":"Later","color":"F1DB50","boardId":1,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"}],"acl":[],"permissions":{"PERMISSION_READ":true,"PERMISSION_EDIT":true,"PERMISSION_MANAGE":true,"PERMISSION_SHARE":true},"users":[{"primaryKey":"<NEXTCLOUD_USERNAME>","uid":"<NEXTCLOUD_USERNAME>","displayname":"<NEXTCLOUD_DISPLAYNAME>","type":0}],"shared":0,"stacks":[{"id":1,"title":"To
+        do","boardId":1,"deletedAt":0,"lastModified":1770197514,"order":1,"ETag":"7217f4566d7c2196999cf262c0547451"},{"id":10,"title":"Ideas","boardId":1,"deletedAt":0,"lastModified":0,"order":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":3,"title":"Done","boardId":1,"deletedAt":0,"lastModified":1760165320,"order":3,"ETag":"0d0409c2f9a1ae02adc633621247a39a"},{"id":2,"title":"In
+        progress","boardId":1,"deletedAt":0,"lastModified":1770191094,"order":2,"ETag":"6cb2523b411cee9ec7ad82eef81bbb37"}],"activeSessions":[],"deletedAt":1770282320,"lastModified":1770282320,"settings":{"notify-due":"assigned","calendar":true},"ETag":"2e6c7f18c7671882878582d89a78bbcb"},{"id":4,"title":"Board
+        1","owner":{"primaryKey":"<NEXTCLOUD_USERNAME>","uid":"<NEXTCLOUD_USERNAME>","displayname":"<NEXTCLOUD_DISPLAYNAME>","type":0},"color":"ff0000","archived":false,"labels":[{"id":13,"title":"Termin\u00e9","color":"31CC7C","boardId":4,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":14,"title":"\u00c0
+        r\u00e9viser","color":"317CCC","boardId":4,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":15,"title":"Action
+        requise","color":"FF7A66","boardId":4,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":16,"title":"Plus
+        tard","color":"F1DB50","boardId":4,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":17,"title":"Label
+        1","color":"31CC7C","boardId":4,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"}],"acl":[],"permissions":{"PERMISSION_READ":true,"PERMISSION_EDIT":true,"PERMISSION_MANAGE":true,"PERMISSION_SHARE":true},"users":[{"primaryKey":"<NEXTCLOUD_USERNAME>","uid":"<NEXTCLOUD_USERNAME>","displayname":"<NEXTCLOUD_DISPLAYNAME>","type":0}],"shared":0,"stacks":[{"id":11,"title":"Stack
+        1","boardId":4,"deletedAt":0,"lastModified":1770282142,"order":999,"ETag":"050384970d0470624f6f3242784484ce"}],"activeSessions":[],"deletedAt":1770282316,"lastModified":1770282316,"settings":{"notify-due":"assigned","calendar":true},"ETag":"8a65b794056dfd86cad9e1cfd08fd1d5"},{"id":5,"title":"Board
+        2","owner":{"primaryKey":"<NEXTCLOUD_USERNAME>","uid":"<NEXTCLOUD_USERNAME>","displayname":"<NEXTCLOUD_DISPLAYNAME>","type":0},"color":"876752","archived":false,"labels":[{"id":18,"title":"Termin\u00e9","color":"31CC7C","boardId":5,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":19,"title":"\u00c0
+        r\u00e9viser","color":"317CCC","boardId":5,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":20,"title":"Action
+        requise","color":"FF7A66","boardId":5,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"},{"id":21,"title":"Plus
+        tard","color":"F1DB50","boardId":5,"cardId":null,"lastModified":0,"ETag":"cfcd208495d565ef66e7dff9f98764da"}],"acl":[],"permissions":{"PERMISSION_READ":true,"PERMISSION_EDIT":true,"PERMISSION_MANAGE":true,"PERMISSION_SHARE":true},"users":[{"primaryKey":"<NEXTCLOUD_USERNAME>","uid":"<NEXTCLOUD_USERNAME>","displayname":"<NEXTCLOUD_DISPLAYNAME>","type":0}],"shared":0,"stacks":[],"activeSessions":[],"deletedAt":0,"lastModified":1770285284,"settings":{"notify-due":"assigned","calendar":true},"ETag":"dd1149f11e0f0a228e6644320e343c4d"}]'
+  recorded_at: 2026-02-05 15:43:06
+recorded_with: VCR-vcr/2.1.0

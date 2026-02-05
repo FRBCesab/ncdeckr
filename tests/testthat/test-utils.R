@@ -3,10 +3,6 @@
 test_that("Test .get_credentials() for error", {
   create_tempdir()
 
-  Sys.setenv("NEXTCLOUD_USERNAME" = "username")
-  Sys.setenv("NEXTCLOUD_PASSWORD" = "paswword")
-  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
-
   nextcloud_username <- Sys.getenv("NEXTCLOUD_USERNAME")
   Sys.setenv("NEXTCLOUD_USERNAME" = "")
 
@@ -110,28 +106,41 @@ test_that("Test .get_credentials() for success", {
 test_that("Test .append_endpoint() for success", {
   create_tempdir()
 
-  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
-
   expect_silent(x <- .append_endpoint())
 
   expect_true(inherits(x, "character"))
   expect_equal(length(x), 1L)
 
-  expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/")
+  expect_equal(
+    x,
+    paste0(Sys.getenv("NEXTCLOUD_SERVER"), "/index.php/apps/deck/api/v1.0/")
+  )
 
   expect_silent(x <- .append_endpoint("boards"))
 
   expect_true(inherits(x, "character"))
   expect_equal(length(x), 1L)
 
-  expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/boards")
+  expect_equal(
+    x,
+    paste0(
+      Sys.getenv("NEXTCLOUD_SERVER"),
+      "/index.php/apps/deck/api/v1.0/boards"
+    )
+  )
 
   expect_silent(x <- .append_endpoint("boards", 1))
 
   expect_true(inherits(x, "character"))
   expect_equal(length(x), 1L)
 
-  expect_equal(x, "https://fakesite.com/index.php/apps/deck/api/v1.0/boards/1")
+  expect_equal(
+    x,
+    paste0(
+      Sys.getenv("NEXTCLOUD_SERVER"),
+      "/index.php/apps/deck/api/v1.0/boards/1"
+    )
+  )
 })
 
 
@@ -139,8 +148,6 @@ test_that("Test .append_endpoint() for success", {
 
 test_that("Test .append_headers() for error", {
   create_tempdir()
-
-  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
 
   expect_error(
     .append_headers(),
@@ -160,8 +167,6 @@ test_that("Test .append_headers() for error", {
 
 test_that("Test .append_headers() for success", {
   create_tempdir()
-
-  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
 
   http_request <- .append_endpoint() |>
     httr2::request()
@@ -186,8 +191,6 @@ test_that("Test .append_headers() for success", {
 test_that("Test .append_authentication() for error", {
   create_tempdir()
 
-  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
-
   expect_error(
     .append_authentication(),
     "Argument '.req' is required",
@@ -206,8 +209,6 @@ test_that("Test .append_authentication() for error", {
 
 test_that("Test .append_authentication() for success", {
   create_tempdir()
-
-  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
 
   http_request <- .append_endpoint() |>
     httr2::request()

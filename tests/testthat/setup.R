@@ -17,10 +17,11 @@ invisible(
   vcr::vcr_configure(
     filter_sensitive_data = list(
       "<NEXTCLOUD_USERNAME>" = Sys.getenv("NEXTCLOUD_USERNAME"),
+      "<NEXTCLOUD_DISPLAYNAME>" = Sys.getenv("NEXTCLOUD_DISPLAYNAME"),
       "<NEXTCLOUD_PASSWORD>" = Sys.getenv("NEXTCLOUD_PASSWORD"),
-      "<NEXTCLOUD_SERVER>" = Sys.getenv("NEXTCLOUD_SERVER")
+      "http://127.0.0.1" = Sys.getenv("NEXTCLOUD_SERVER")
     ),
-    dir = "fixtures",
+    dir = "_vcr",
     log = FALSE,
     log_opts = list(file = "console")
   )
