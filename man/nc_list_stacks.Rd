@@ -22,7 +22,7 @@ A \code{data.frame} with the following columns:
 \description{
 Performs an HTTP request (GET method) at the endpoint
 \verb{/boards/\{boardId\}/stacks} of the Nextcloud Deck API to retrieve details of
-all stacks of a Deck board (including deleted and archived stacks).
+all stacks of an active Deck board.
 }
 \examples{
 \dontrun{

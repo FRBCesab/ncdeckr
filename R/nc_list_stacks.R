@@ -3,7 +3,7 @@
 #' @description
 #' Performs an HTTP request (GET method) at the endpoint
 #' `/boards/{boardId}/stacks` of the Nextcloud Deck API to retrieve details of
-#' all stacks of a Deck board (including deleted and archived stacks).
+#' all stacks of an active Deck board.
 #'
 #' @param board_id a `integer` of length 1. The identifier of the board. Use
 #'   `nc_list_boards()` to get this value.
