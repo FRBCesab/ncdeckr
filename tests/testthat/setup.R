@@ -25,3 +25,15 @@ invisible(
     log_opts = list(file = "console")
   )
 )
+
+if (Sys.getenv("NEXTCLOUD_USERNAME") == "") {
+  Sys.setenv(NEXTCLOUD_USERNAME = "username")
+}
+
+if (Sys.getenv("NEXTCLOUD_PASSWORD") == "") {
+  Sys.setenv(NEXTCLOUD_PASSWORD = "password")
+}
+
+if (Sys.getenv("NEXTCLOUD_SERVER") == "") {
+  Sys.setenv(NEXTCLOUD_SERVER = "https://fakesite.com")
+}
