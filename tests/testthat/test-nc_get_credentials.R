@@ -2,6 +2,11 @@
 
 test_that("Test nc_get_credentials() for error", {
   create_tempdir()
+
+  Sys.setenv("NEXTCLOUD_USERNAME" = "username")
+  Sys.setenv("NEXTCLOUD_PASSWORD" = "paswword")
+  Sys.setenv("NEXTCLOUD_SERVER" = "https://fakesite.com")
+
   nextcloud_username <- Sys.getenv("NEXTCLOUD_USERNAME")
   Sys.setenv("NEXTCLOUD_USERNAME" = "")
 
