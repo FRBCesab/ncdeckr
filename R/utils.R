@@ -168,3 +168,38 @@
 
   data
 }
+
+
+#' Creates output (data.frame) for nc_list_stacks()
+#'
+#' @noRd
+
+.extract_stacks_details <- function(.resp) {
+  if (missing(.resp)) {
+    stop("Argument '.resp' is required", call. = FALSE)
+  }
+
+  if (!is.list(.resp)) {
+    stop("Argument '.resp' must be a list", call. = FALSE)
+  }
+
+  if (length(.resp) == 0) {
+    return(data.frame())
+  }
+
+  output <- lapply(.resp, function(stack) {
+    data.frame(
+      board_id = .extract_item(stack, "boardId"),
+      id = .extract_item(stack, "id"),
+      title = .extract_item(stack, "title"),
+      deleted = ifelse(stack$"deletedAt" == 0, FALSE, TRUE),
+      n_cards = length(stack$"cards")
+    )
+  })
+
+  output <- do.call(rbind.data.frame, output)
+  output <- output[order(output$"title", decreasing = FALSE), ]
+  rownames(output) <- NULL
+
+  output
+}
