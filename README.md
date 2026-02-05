@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/ncdeckr)](https://CRAN.R-project.or
 Check](https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml)
 [![Website](https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml)
 ![Code Coverage:
-90%](https://img.shields.io/badge/Code%20coverage-90%25-dfb317)
+100%](https://img.shields.io/badge/Code%20coverage-100%25-44cc11)
 [![License: GPL (\>=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0/)
 <!-- badges: end -->
