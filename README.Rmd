@@ -13,8 +13,8 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
-codecov <- covr::package_coverage() |> 
-  covr::percent_coverage() |> 
+codecov <- covr::package_coverage() |>
+  covr::percent_coverage() |>
   round(0)
 
 if (codecov <= 75) {
