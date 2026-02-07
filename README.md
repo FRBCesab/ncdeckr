@@ -119,7 +119,7 @@ Click to expand results
 </summary>
 
 | File | Coverage |
-|:---|:---|
+|:---|:--:|
 | `R/nc_list_stacks.R` | ![coverage](https://img.shields.io/badge/%E2%A0%80%E2%A0%80%E2%A0%800%25%E2%A0%80-e05d44) |
 | `R/utils.R` | ![coverage](https://img.shields.io/badge/%E2%A0%80%E2%A0%8084%25%E2%A0%80-dfb317) |
 | `R/nc_list_boards.R` | ![coverage](https://img.shields.io/badge/%E2%A0%80100%25%E2%A0%80-44cc11) |

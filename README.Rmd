@@ -202,7 +202,7 @@ covr_files$"Icon" <- gsub(" ", "%E2%A0%80", covr_files$"Icon")
 
 knitr::kable(
   covr_files[, c(1, 5)],
-  align = c("l", "l"),
+  align = c("l", "c"),
   col.names = c("File", "Coverage")
 )
 ```
