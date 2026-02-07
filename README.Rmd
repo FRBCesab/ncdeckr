@@ -179,27 +179,31 @@ fa_colors <- lapply(values, find_cov_color) |>
 covr_files <- data.frame(
   "File" = rownames(covr_files),
   "Coverage" = covr_files$"Coverage",
-  "Color" = paste0("#", fa_colors)
+  "Value" = format(round(values, 0)),
+  "Color" = as.character(fa_colors)
 )
 
-covr_files$"Icon" <- lapply(covr_files$"Color", function(x) {
-  fontawesome::fa(
-    "circle",
-    fill = x,
-    prefer_type = "solid"
+covr_files$"Icon" <- lapply(1:nrow(covr_files), function(x) {
+  paste0(
+    "![coverage](https://img.shields.io/badge/coverage-",
+    covr_files[x, "Value"],
+    "%25-",
+    covr_files[x, "Color"],
+    ")"
   )
 }) |>
   unlist()
 
 
 covr_files$"File" <- paste0("`", covr_files$"File", "`")
+covr_files$"Icon" <- gsub(" ", "%E2%A0%80", covr_files$"Icon")
 
 # covr_files$"Coverage" <- paste(covr_files$"Coverage", covr_files$"Icon")
 
 knitr::kable(
-  covr_files[, c(1:2, 4)],
-  align = c("l", "r"),
-  col.names = c("File", "Coverage", "")
+  covr_files[, c(1, 5)],
+  align = c("l", "l"),
+  col.names = c("File", "Coverage")
 )
 ```
 
