@@ -155,9 +155,9 @@ vignette describes the core features of the package
 
 ## Code coverage
 
-<details>
-
-<summary>Code coverage details</summary>
+<details><summary>
+Code coverage details
+</summary>
 
 ```{r echo=FALSE, eval=TRUE, message=FALSE}
 covr_files <- devtools::test_coverage() |>
@@ -174,7 +174,7 @@ covr_files$"File" <- paste0("`", covr_files$"File", "`")
 knitr::kable(covr_files, align = c("l", "r"))
 ```
 
-> Last update: `r Sys.Date()`
+> _Last update:_ `r Sys.Date()`
 
 </details>
 

@@ -113,19 +113,17 @@ vignette describes the core features of the package
 ## Code coverage
 
 <details>
+  <summary>
+    Code coverage details
+  </summary>
 
-<summary>
+| File                 | Coverage |
+|:---------------------|---------:|
+| `R/nc_list_stacks.R` |    0.00% |
+| `R/utils.R`          |   84.00% |
+| `R/nc_list_boards.R` |  100.00% |
 
-Code coverage details
-</summary>
-
-| File                 |    Coverage |
-|:---------------------|------------:|
-| `R/nc_list_stacks.R` |   **0.00%** |
-| `R/utils.R`          |  **84.00%** |
-| `R/nc_list_boards.R` | **100.00%** |
-
-> Last update: 2026-02-07
+> *Last update:* 2026-02-07
 
 </details>
 
