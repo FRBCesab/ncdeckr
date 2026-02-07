@@ -185,9 +185,8 @@ covr_files <- data.frame(
 
 covr_files$"Icon" <- lapply(1:nrow(covr_files), function(x) {
   paste0(
-    "![coverage](https://img.shields.io/badge/coverage-",
-    covr_files[x, "Value"],
-    "%25-",
+    "![coverage](https://img.shields.io/badge/",
+    paste0(" ", covr_files[x, "Value"], "%25", " -"),
     covr_files[x, "Color"],
     ")"
   )
@@ -197,6 +196,7 @@ covr_files$"Icon" <- lapply(1:nrow(covr_files), function(x) {
 
 covr_files$"File" <- paste0("`", covr_files$"File", "`")
 covr_files$"Icon" <- gsub(" ", "%E2%A0%80", covr_files$"Icon")
+
 
 # covr_files$"Coverage" <- paste(covr_files$"Coverage", covr_files$"Icon")
 
