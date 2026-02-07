@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/ncdeckr)](https://CRAN.R-project.or
 Check](https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml)
 [![Website](https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/frbcesab/ncdeckr/actions/workflows/pkgdown.yaml)
 ![Code Coverage:
-68%](https://img.shields.io/badge/Code%20coverage-68%25-e05d44)
+69%](https://img.shields.io/badge/Code%20coverage-69%25-e05d44)
 [![License: GPL (\>=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0/)
 <!-- badges: end -->
@@ -23,6 +23,7 @@ Check](https://github.com/frbcesab/ncdeckr/actions/workflows/R-CMD-check.yaml/ba
 <a href="#installation">Installation</a><br> •
 <a href="#get-started">Get started</a><br> •
 <a href="#long-form-documentations">Long-form documentations</a><br> •
+<a href="#code-coverage">Code coverage</a><br> •
 <a href="#citation">Citation</a><br> •
 <a href="#contributing">Contributing</a><br> •
 <a href="#acknowledgments">Acknowledgments</a><br> •
@@ -108,6 +109,25 @@ vignette.
 vignette describes the core features of the package
 - **{{ LIST ADDITIONAL VIGNETTES }}**
 &#10;-->
+
+## Code coverage
+
+<details>
+
+<summary>
+
+Code coverage details
+</summary>
+
+| File                 |    Coverage |
+|:---------------------|------------:|
+| `R/nc_list_stacks.R` |   **0.00%** |
+| `R/utils.R`          |  **84.00%** |
+| `R/nc_list_boards.R` | **100.00%** |
+
+> Last update: 2026-02-07
+
+</details>
 
 ## Citation
 

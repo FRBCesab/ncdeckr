@@ -55,6 +55,7 @@ ncdeckr <img src="man/figures/package-sticker.png" align="right" style="float:ri
   • <a href="#installation">Installation</a><br>
   • <a href="#get-started">Get started</a><br>
   • <a href="#long-form-documentations">Long-form documentations</a><br>
+  • <a href="#code-coverage">Code coverage</a><br>
   • <a href="#citation">Citation</a><br>
   • <a href="#contributing">Contributing</a><br>
   • <a href="#acknowledgments">Acknowledgments</a><br>
@@ -150,6 +151,35 @@ vignette describes the core features of the package
 - **{{ LIST ADDITIONAL VIGNETTES }}**
 
 -->
+
+
+## Code coverage
+
+<details>
+
+<summary>Code coverage details</summary>
+
+```{r echo=FALSE, eval=TRUE, message=FALSE}
+covr_files <- devtools::test_coverage() |>
+  covr:::to_report_data() |>
+  getElement("file_stats")
+
+covr_files <- data.frame(
+  "File" = rownames(covr_files),
+  "Coverage" = covr_files$"Coverage"
+)
+
+covr_files$"File" <- paste0("`", covr_files$"File", "`")
+
+knitr::kable(covr_files, align = c("l", "r"))
+```
+
+> Last update: `r Sys.Date()`
+
+</details>
+
+
+
 
 ## Citation
 
