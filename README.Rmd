@@ -17,21 +17,27 @@ codecov <- devtools::test_coverage(show_report = FALSE) |>
   covr::percent_coverage() |>
   round(0)
 
-if (codecov <= 75) {
-  badge_color <- "e05d44"
+find_cov_color <- function(codecov) {
+  if (codecov <= 75) {
+    badge_color <- "e05d44"
+  }
+
+  if (codecov > 75) {
+    badge_color <- "dfb317"
+  }
+
+  if (codecov > 90) {
+    badge_color <- "a3c51c"
+  }
+
+  if (codecov > 95) {
+    badge_color <- "44cc11"
+  }
+
+  badge_color
 }
 
-if (codecov > 75) {
-  badge_color <- "dfb317"
-}
-
-if (codecov > 90) {
-  badge_color <- "a3c51c"
-}
-
-if (codecov > 95) {
-  badge_color <- "44cc11"
-}
+badge_color <- find_cov_color(codecov)
 ```
 
 
@@ -155,26 +161,49 @@ vignette describes the core features of the package
 
 ## Code coverage
 
-<details><summary>
-Code coverage details
-</summary>
+<details>
+  <summary>
+    Click to expand results
+  </summary>
+
 
 ```{r echo=FALSE, eval=TRUE, message=FALSE}
-covr_files <- devtools::test_coverage() |>
+covr_files <- devtools::test_coverage(show_report = FALSE) |>
   covr:::to_report_data() |>
   getElement("file_stats")
 
+values <- 100 * covr_files$"Covered" / covr_files$"Relevant"
+fa_colors <- lapply(values, find_cov_color) |>
+  unlist()
+
 covr_files <- data.frame(
   "File" = rownames(covr_files),
-  "Coverage" = covr_files$"Coverage"
+  "Coverage" = covr_files$"Coverage",
+  "Color" = paste0("#", fa_colors)
 )
+
+covr_files$"Icon" <- lapply(covr_files$"Color", function(x) {
+  fontawesome::fa(
+    "circle",
+    fill = x,
+    prefer_type = "solid"
+  )
+}) |>
+  unlist()
+
 
 covr_files$"File" <- paste0("`", covr_files$"File", "`")
 
-knitr::kable(covr_files, align = c("l", "r"))
+# covr_files$"Coverage" <- paste(covr_files$"Coverage", covr_files$"Icon")
+
+knitr::kable(
+  covr_files[, c(1:2, 4)],
+  align = c("l", "r"),
+  col.names = c("File", "Coverage", "")
+)
 ```
 
-> _Last update:_ `r Sys.Date()`
+<small>_Last update:_ `r Sys.Date()`</small>
 
 </details>
 
